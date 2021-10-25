@@ -147,6 +147,17 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Reward, function (sprite, otherS
         . b b . . . . . . . . . . b b . 
         `)
 })
+function changeLevel () {
+    if (0 == 0) {
+    	
+    } else if (false) {
+    	
+    } else if (false) {
+    	
+    } else {
+    	
+    }
+}
 scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile13, function (sprite, location) {
     game.over(false)
 })

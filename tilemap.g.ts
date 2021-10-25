@@ -32,6 +32,25 @@ namespace myTiles {
 ...............22222............................
 ................................................
 `, [myTiles.transparency16,sprites.builtin.forestTiles1,sprites.swamp.swampTile13,sprites.swamp.swampTile12,sprites.swamp.swampTile14,sprites.builtin.forestTiles4,sprites.builtin.forestTiles0,sprites.builtin.forestTiles23,sprites.builtin.forestTiles22,sprites.builtin.forestTiles20,sprites.builtin.forestTiles28,sprites.swamp.swampTile3,sprites.dungeon.collectibleBlueCrystal,sprites.dungeon.stairSouth,sprites.builtin.forestTiles3,sprites.builtin.forestTiles2,sprites.builtin.forestTiles21,myTiles.tile3,sprites.builtin.forestTiles25,myTiles.tile5,sprites.dungeon.chestClosed], TileScale.Sixteen);
+            case "level2":
+            case "level2":return tiles.createTilemap(hex`1000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`, img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, [myTiles.transparency16], TileScale.Sixteen);
         }
         return null;
     })
