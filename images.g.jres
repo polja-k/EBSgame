@@ -1,0 +1,12 @@
+{
+    "image1": {
+        "data": "hwQPAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBERAAAAAAAVFVVBAAAAEBVVVVFAAAAQEVEREUAAABARUVVRQAAAEBFRFVFAAAAQFVVVUUAAAAAVFVVBAAAAABAREQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Coin"
+    },
+    "*": {
+        "mimeType": "image/x-mkcd-f4",
+        "dataEncoding": "base64",
+        "namespace": "myImages"
+    }
+}

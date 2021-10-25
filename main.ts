@@ -1,6 +1,7 @@
 namespace SpriteKind {
     export const Key = SpriteKind.create()
     export const Reward = SpriteKind.create()
+    export const Coin = SpriteKind.create()
 }
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, location) {
     if (Reward.image.equals(img`
@@ -88,6 +89,105 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         mySprite.vy = -4 * pixelsToMeters
     }
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite, otherSprite) {
+    otherSprite.destroy(effects.trail, 200)
+    otherSprite.y += -3
+    music.baDing.play()
+    info.changeScoreBy(1)
+})
+function createCoin () {
+    for (let value of tiles.getTilesByType(sprites.dungeon.collectibleBlueCrystal)) {
+        mySprite3 = sprites.create(assets.image`Coin`, SpriteKind.Coin)
+        tiles.placeOnTile(mySprite3, value)
+        tiles.setTileAt(value, assets.tile`transparency16`)
+        animation.runImageAnimation(
+        mySprite3,
+        [img`
+            . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . 
+            . . . . . 4 4 4 4 4 . . . . . 
+            . . . . 4 5 5 5 5 5 4 . . . . 
+            . . . 4 5 5 4 4 4 5 5 4 . . . 
+            . . . 4 5 5 4 5 4 5 5 4 . . . 
+            . . . 4 5 5 4 4 4 5 5 4 . . . 
+            . . . 4 5 5 4 5 5 5 5 4 . . . 
+            . . . 4 5 5 4 5 5 5 5 4 . . . 
+            . . . . 4 5 5 5 5 5 4 . . . . 
+            . . . . . 4 4 4 4 4 . . . . . 
+            . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . 
+            . . . . . 4 4 4 4 . . . . . . 
+            . . . . 4 5 4 5 5 4 . . . . . 
+            . . . 4 5 4 5 5 5 5 4 . . . . 
+            . . . 4 5 4 5 4 4 5 4 . . . . 
+            . . . 4 5 4 5 4 4 5 4 . . . . 
+            . . . 4 5 4 5 4 5 5 4 . . . . 
+            . . . 4 5 4 5 5 5 5 4 . . . . 
+            . . . . 4 5 4 5 5 4 . . . . . 
+            . . . . . 4 4 4 4 . . . . . . 
+            . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . 
+            . . . . . 4 4 4 4 . . . . . . 
+            . . . . 4 5 5 4 5 4 . . . . . 
+            . . . . 4 5 5 4 5 5 4 . . . . 
+            . . . . 4 5 5 4 5 5 4 . . . . 
+            . . . . 4 5 5 4 5 5 4 . . . . 
+            . . . . 4 5 5 4 5 5 4 . . . . 
+            . . . . 4 5 5 4 5 5 4 . . . . 
+            . . . . 4 5 5 4 5 4 . . . . . 
+            . . . . . 4 4 4 4 . . . . . . 
+            . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . 
+            . . . . . . 4 4 4 4 . . . . . 
+            . . . . . 4 5 4 5 5 4 . . . . 
+            . . . . 4 5 5 4 5 5 4 . . . . 
+            . . . . 4 5 5 4 5 5 4 . . . . 
+            . . . . 4 5 5 4 5 5 4 . . . . 
+            . . . . 4 5 5 4 5 5 4 . . . . 
+            . . . . 4 5 5 4 5 5 4 . . . . 
+            . . . . . 4 5 4 5 5 4 . . . . 
+            . . . . . . 4 4 4 4 . . . . . 
+            . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . 
+            . . . . . . 4 4 4 4 . . . . . 
+            . . . . . 4 5 5 4 5 4 . . . . 
+            . . . . 4 5 5 5 5 4 5 4 . . . 
+            . . . . 4 5 4 4 5 4 5 4 . . . 
+            . . . . 4 5 4 4 5 4 5 4 . . . 
+            . . . . 4 5 4 5 5 4 5 4 . . . 
+            . . . . 4 5 5 5 5 4 5 4 . . . 
+            . . . . . 4 5 5 4 5 4 . . . . 
+            . . . . . . 4 4 4 4 . . . . . 
+            . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . 
+            `],
+        150,
+        true
+        )
+    }
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Reward, function (sprite, otherSprite) {
     if (Reward.image.equals(img`
         . . b b b b b b b b b b b b . . 
@@ -126,6 +226,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Reward, function (sprite, otherS
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, otherSprite, 0, -100)
+        projectile.fy = 250
         projectile.destroy(effects.confetti, 500)
     }
     Reward.setImage(img`
@@ -160,11 +261,6 @@ function changeLevel () {
 }
 scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile13, function (sprite, location) {
     game.over(false)
-})
-scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleBlueCrystal, function (sprite, location) {
-    tiles.setTileAt(location, assets.tile`transparency16`)
-    music.baDing.play()
-    info.changeScoreBy(1)
 })
 function createEnemy () {
     for (let value of tiles.getTilesByType(assets.tile`myTile3`)) {
@@ -351,6 +447,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 })
 let mySprite2: Sprite = null
 let projectile: Sprite = null
+let mySprite3: Sprite = null
 let Reward: Sprite = null
 let gravity = 0
 let pixelsToMeters = 0
@@ -502,6 +599,7 @@ pixelsToMeters = 30
 gravity = 9.81 * pixelsToMeters
 createPlayer()
 createEnemy()
+createCoin()
 createReward()
 game.onUpdate(function () {
     if (controller.left.isPressed()) {
@@ -559,7 +657,7 @@ game.onUpdate(function () {
             . . . . f f f f f f . . . . 
             . . . . . . f f f . . . . . 
             `],
-        500,
+        100,
         false
         )
     } else if (controller.right.isPressed()) {
@@ -617,7 +715,7 @@ game.onUpdate(function () {
             . . . . f f f f f f . . . . 
             . . . . . f f f . . . . . . 
             `],
-        500,
+        100,
         false
         )
     }
